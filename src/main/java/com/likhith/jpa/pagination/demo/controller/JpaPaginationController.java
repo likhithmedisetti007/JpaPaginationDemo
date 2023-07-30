@@ -23,11 +23,11 @@ public class JpaPaginationController {
 
 	@GetMapping("/getCustomers")
 	private CustomerResponseBodyVO getCustomers(@Nullable @RequestParam String name,
-			@Nullable @RequestParam(defaultValue = "1") String page,
+			@Nullable @RequestParam String filters, @Nullable @RequestParam(defaultValue = "1") String page,
 			@Nullable @RequestParam(defaultValue = "2") String size,
 			@Nullable @RequestParam(defaultValue = "false") boolean noPagination) {
 
-		CustomerResponseBodyVO response = service.getCustomers(name, page, size, noPagination);
+		CustomerResponseBodyVO response = service.getCustomers(name, filters, page, size, noPagination);
 		return response;
 
 	}
